@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.text }}</p>
+    <a href="{% url 'post_edit' post.pk %}">Edit</a>
+    <form action="{% url 'post_delete' post.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    <a href="{% url 'post_list' %}">Back to list</a>
+</body>
+</html>
